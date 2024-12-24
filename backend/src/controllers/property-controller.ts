@@ -6,8 +6,8 @@ import { Search } from '../types';
 
 const index = async (req: Request, res: Response) =>{
     try{
-        const propertys = await propertyModel.find({}).sort(({createdAt:-1}));
-        res.json({propertys:propertys}).status(200)
+        const properties = await propertyModel.find({}).sort(({createdAt:-1}));
+        res.json({properties}).status(200)
       }catch (error:unknown) {
           if(error instanceof Error){
               res.json({message:error.message}).status(500)
@@ -18,29 +18,29 @@ const index = async (req: Request, res: Response) =>{
 
 const store = async (req: Request, res: Response) => {
     const {
-        propetyTitle,
-        propetyImg,
-        propetySlug,
-        propetyLocation,
-        propetyDescription,
-        propetyPrice,
-        propetyType,
-        propetyStatus,
-        propetyArea,
-        propetyInStock = true,
+        propertyTitle,
+        propertyImg,
+        propertySlug,
+        propertyLocation,
+        propertyDescription,
+        propertyPrice,
+        propertyType,
+        propertyStatus,
+        propertyArea,
+        propertyInStock 
     } = req.body;
 
     // Validate required fields
     if (
-        !propetyTitle ||
-        !propetyImg ||
-        !propetySlug ||
-        !propetyLocation ||
-        !propetyDescription ||
-        !propetyPrice ||
-        !propetyType ||
-        !propetyStatus ||
-        !propetyArea
+        !propertyTitle ||
+        !propertyImg ||
+        !propertySlug ||
+        !propertyLocation ||
+        !propertyDescription ||
+        !propertyPrice ||
+        !propertyType ||
+        !propertyStatus ||
+        !propertyArea
     ) {
         return res.status(400).json({ error: "All fields are required." });
     }
@@ -48,22 +48,22 @@ const store = async (req: Request, res: Response) => {
     try {
         // Check if a property with the same title or slug already exists
      
-        if(await propertyModel.findOne({propetyTitle})){
-             return res.status(422).json({message:'A property is added for that name'})
+        if(await propertyModel.findOne({propertyTitle})){
+             return res.status(500).json({message:'A property is added for that name'})
         }
 
         // Create a new property document
         const newProperty =await  propertyModel.create({
-            propetyTitle,
-            propetyImg,
-            propetySlug,
-            propetyLocation,
-            propetyDescription,
-            propetyPrice,
-            propetyType,
-            propetyStatus,
-            propetyArea,
-            propetyInStock,
+            propertyTitle,
+            propertyImg,
+            propertySlug,
+            propertyLocation,
+            propertyDescription,
+            propertyPrice,
+            propertyType,
+            propertyStatus,
+            propertyArea,
+            propertyInStock,
         });
 
         // Return a success response with the newly created property
@@ -73,8 +73,7 @@ const store = async (req: Request, res: Response) => {
         });
     } catch (error: unknown) {
         // Handle any errors
-    
-
+ 
         res.status(500).json({ error: "Server error while adding property." });
     }
 };
@@ -96,9 +95,9 @@ const search = async (req: Request, res: Response) => {
      
         let searchQuery:Search={};
 
-        if (location) searchQuery.propetyLocation = location as string;
-        if (status) searchQuery.propetyStatus = status as string;
-        if (type)  searchQuery.propetyType = type as string;
+        if (location) searchQuery.propertyLocation = location as string;
+        if (status) searchQuery.propertyStatus = status as string;
+        if (type)  searchQuery.propertyType = type as string;
 
         // Perform the search using the built query
         const properties = await propertyModel.find(searchQuery);

@@ -8,7 +8,7 @@ import  propertyRouter from "./routes/propertyRoutes";
 dotenv.config();
 
 // DB Connection
-const mongoURL = process.env.MONGO_DB_ATLAS || '';
+const mongoURL = process.env.MONGO_DB_URL|| '';
 
 // only start the server if we connect to mongo db
 mongoose.connect(mongoURL,{retryWrites:true}).then((response)=>{
