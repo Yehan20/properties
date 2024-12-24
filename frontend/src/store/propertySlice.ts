@@ -37,9 +37,9 @@ export const searchProperties  =createAsyncThunk('properties/search',async(filte
 
      const query = new URLSearchParams(cleanedFilters).toString();
 
-     const newProduct = await axios.get(`${URL}/search?${query}`)
+     const newProperties = await axios.get(`${URL}/search?${query}`)
    
-     return newProduct.data.properties;
+     return newProperties.data.properties;
 
 })
 
