@@ -21,7 +21,7 @@ const PropertySchema = new Schema(
         },
         propertyLocation: {
             type: String,
-            enum: ["colombo", "kandy", "galle"], // Restrict to predefined locations
+            enum: ["colombo", "kandy", "galle"], // 3 locations
             required: true,
         },
         propertyDescription: {
@@ -34,12 +34,12 @@ const PropertySchema = new Schema(
         },
         propertyType: {
             type: String,
-            enum: ["single family", "villa"], // Restrict to predefined types
+            enum: ["single family", "villa"], // 2 types
             required: true,
         },
         propertyStatus: {
             type: String,
-            enum: ["for sale", "for rent"], // Restrict to predefined statuses
+            enum: ["for sale", "for rent"], // 2  status
             required: true,
         },
         propertyArea: {
