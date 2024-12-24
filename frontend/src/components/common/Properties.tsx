@@ -4,7 +4,7 @@ import { useState } from "react";
 import Card from "@/components/common/Card";
 
 import { Property } from "@/types/types";
-import Loader from "./Loader";
+import Loader from "@/components/common/Loader";
 
 interface PropertiesProps {
     properties: Property[];
