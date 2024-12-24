@@ -7,7 +7,7 @@ import Map from "../icons/map"
 const Card: React.FC<CardProps> = ({ property }) => {
     return (
         <div className="relative mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-            <Image src={property.propertyImg} className="h-48 w-full object-cover object-center" width={300} height={300} alt="Product Image" />
+            <Image src={property.propertyImg} className="h-48 w-full object-cover object-center" width={300} height={300} alt="Property Image" />
             <span className="absolute top-3 left-1 capitalize bg-white rounded-full text-xs font-semibold px-3 py-2">{property.propertyStatus}</span>
             <div className="p-4 text-start">
                 <h2 className="mb-2 text-[18px] font-semibold">{property.propertyTitle}</h2>

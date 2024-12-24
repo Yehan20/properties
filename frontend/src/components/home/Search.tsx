@@ -71,8 +71,8 @@ const Search = () => {
         <option value="" disabled>
           Select Property Type
         </option>
-        <option value="Single Family">Single Family</option>
-        <option value="Villa">Villa</option>
+        <option value="single family">Single Family</option>
+        <option value="villa">Villa</option>
       </select>
 
       <button
