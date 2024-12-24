@@ -5,53 +5,55 @@ import { PropertyInterface } from "../types";
 // Design Schema
 const PropertySchema = new Schema(
     {
-        propetyTitle: {
+        propertyTitle: {
             type: String,
             unique: true,
             required: true,
         },
-        propetyImg: {
+        propertyImg: {
             type: String,
             required: true,
         },
-        propetySlug: {
+        propertySlug: {
             type: String,
             unique: true,
             required: true,
         },
-        propetyLocation: {
+        propertyLocation: {
             type: String,
-            enum: ["Colombo", "Kandy", "Galle"], // Restrict to predefined locations
+            enum: ["colombo", "kandy", "galle"], // Restrict to predefined locations
             required: true,
         },
-        propetyDescription: {
+        propertyDescription: {
             type: String,
             required: true,
         },
-        propetyPrice: {
+        propertyPrice: {
             type: Number,
             required: true,
         },
-        propetyType: {
+        propertyType: {
             type: String,
-            enum: ["Single Family", "Villa"], // Restrict to predefined types
+            enum: ["single family", "villa"], // Restrict to predefined types
             required: true,
         },
-        propetyStatus: {
+        propertyStatus: {
             type: String,
-            enum: ["For Sale", "For Rent"], // Restrict to predefined statuses
+            enum: ["for sale", "for rent"], // Restrict to predefined statuses
             required: true,
         },
-        propetyArea: {
+        propertyArea: {
             type: Number,
             required: true,
         },
-        propetyInStock: {
+        propertyInStock: {
             type: Boolean,
             default: true,
         },
     },  { timestamps: true }
 );
+
+
 
 export default mongoose.model<PropertyInterface>("Property", PropertySchema);
 

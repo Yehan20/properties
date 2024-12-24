@@ -13,7 +13,7 @@ export interface PropertyInterface extends Document {
 }
 
 export interface Search {
-    propetyLocation?:string ;
-    propetyType?:string;
-    propetyStatus?:string;
+    propertyLocation?:string ;
+    propertyType?:string;
+    propertyStatus?:string;
 }
